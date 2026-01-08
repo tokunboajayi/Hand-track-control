@@ -46,6 +46,8 @@ export class GestureDetector {
     private _currentCenter = new THREE.Vector3();
     private _palmCenter = new THREE.Vector3();
     private _disp = new THREE.Vector3();
+    private _currentVector = new THREE.Vector2();
+    private _vStart = new THREE.Vector2();
 
     constructor() {
         this.resetState();
@@ -145,17 +147,17 @@ export class GestureDetector {
             // We only care about 2D rotation for the tesseract (XY plane)
             const v1 = s0.pinchCenter;
             const v2 = s1.pinchCenter;
-            const currentVector = new THREE.Vector2(v2.x - v1.x, v2.y - v1.y).normalize();
+            this._currentVector.set(v2.x - v1.x, v2.y - v1.y).normalize();
 
             if (!this.initialTwistVector) {
-                this.initialTwistVector = new THREE.Vector3(currentVector.x, currentVector.y, 0); // Store 2D as 3D for convenience
+                this.initialTwistVector = new THREE.Vector3(this._currentVector.x, this._currentVector.y, 0);
                 this.multiHandState.twistAngle = 0;
                 this.multiHandState.isTwisting = true;
             } else {
-                const vStart = new THREE.Vector2(this.initialTwistVector.x, this.initialTwistVector.y);
+                this._vStart.set(this.initialTwistVector.x, this.initialTwistVector.y);
                 // Calculate angle difference
-                const angleCurrent = Math.atan2(currentVector.y, currentVector.x);
-                const angleStart = Math.atan2(vStart.y, vStart.x);
+                const angleCurrent = Math.atan2(this._currentVector.y, this._currentVector.x);
+                const angleStart = Math.atan2(this._vStart.y, this._vStart.x);
                 let diff = angleCurrent - angleStart;
 
                 this.multiHandState.twistAngle = diff;
