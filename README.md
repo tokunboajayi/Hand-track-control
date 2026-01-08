@@ -1,37 +1,92 @@
-# SPELLFOUNDRY
+<div align="center">
 
-A hand-tracking physics sorcery sandbox.
+# ✨ SPELLFOUNDRY ✨
 
-## Quick Start
-1. `npm install`
-2. `npm run dev`
-3. Allow Camera Access when prompted.
+### 🖐️ Hand-Tracking Physics Sorcery Sandbox
 
-## Gestures & Controls
+[![Made with Three.js](https://img.shields.io/badge/Made%20with-Three.js-000000?style=for-the-badge&logo=three.js)](https://threejs.org/)
+[![MediaPipe](https://img.shields.io/badge/Powered%20by-MediaPipe-4285F4?style=for-the-badge&logo=google)](https://mediapipe.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+
+<!-- Replace with your own demo GIF -->
+![Demo](https://user-images.githubusercontent.com/placeholder/demo.gif)
+
+*Wave your hands to control particles and a 4D tesseract!*
+
+</div>
+
+---
+
+## 🚀 Quick Start
+
+```bash
+npm install
+npm run dev
+```
+
+📷 **Allow Camera Access** when prompted!
+
+---
+
+## 🎮 Gestures & Controls
 
 | Gesture | Action |
+| :---: | :--- |
+| 🤏 **Pinch** | Place a force source (pushes particles) |
+| ✊ **Pinch + Hold** | Grab and drag the tesseract |
+| 👋 **Swipe** | Shockwave impulse |
+| 🙌 **Two-Hand Stretch** | Adjust field radius |
+| 🔄 **Two-Hand Twist** | Spin tesseract + momentum |
+
+---
+
+## ✨ Features
+
+| Feature | Description |
 | :--- | :--- |
-| **Pinch** (Thumb + Index) | Place a source (pushes particles). |
-| **Swipe** (Fast Motion) | Shockwave impulse. |
-| **Stretch** (Two Hands) | Adjust Field Radius (pull apart = larger). |
-| **Twist** (Two Hands) | Rotate 4D Tesseract projection. |
+| 🦴 **Hand Skeleton** | Full 21-landmark skeleton with glow effects |
+| 🎯 **Temporal Smoothing** | 70% lerp for buttery-smooth tracking |
+| 🧊 **4D Tesseract** | Grab, move, and spin with physics momentum |
+| ⚡ **Adaptive Performance** | Auto-scales if FPS drops |
+| 🎲 **Deterministic Sim** | Fixed seed for reproducible patterns |
 
-### Gesture Thresholds
-- **Pinch**: Detected when thumb and index tip distance < `0.05` (hysteresis exit at `0.08`).
-- **Swipe**: Triggered when hand velocity > `1.5` units/frame (reset < `0.5`).
-- **Stretch**: Active when both hands pinch. Linear 1:1 map to radius.
-- **Twist**: Active when both hands pinch. Maps angular delta to 4D rotation.
+---
 
-## Features
-- **Deterministic Simulation**: Uses a fixed seed for reproducible particle patterns (see `src/utils/rng.ts`).
-- **Adaptive Performance**: Auto-scales particle count if Frame Rate drops below 30FPS.
-- **Visuals**:
-    - **Field Viz**: Arrows show the invisible force field.
-    - **Trails**: Motion blur effect.
-    - **Tesseract**: 4D hypercube projection.
+## 🛠️ Tech Stack
 
-## Controls
-Debug panel (Top Right) allows tweaking:
-- **Particle Count**: Live count.
-- **Interaction Z**: Move the virtual interaction plane forward/backward.
-- **Strength/Radius**: Physics multipliers.
+<div align="center">
+
+| | Technology | Purpose |
+|:---:|:---|:---|
+| 🎨 | **Three.js** | 3D Rendering |
+| 🖐️ | **MediaPipe** | Hand Tracking (GPU) |
+| 📝 | **TypeScript** | Type Safety |
+| ⚡ | **Vite** | Fast HMR |
+
+</div>
+
+---
+
+## 🎛️ Debug Controls
+
+Top-right panel allows tweaking:
+- **Particle Count** - Live particle count
+- **Interaction Z** - Move interaction plane
+- **Field Strength/Radius** - Physics tweaks
+
+---
+
+## 📦 Build
+
+```bash
+npm run build    # Production build
+npm run preview  # Preview production build
+```
+
+---
+
+<div align="center">
+
+### Made with 🔮 magic and ☕ coffee
+
+</div>
